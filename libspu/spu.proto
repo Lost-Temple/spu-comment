@@ -24,6 +24,8 @@ syntax = "proto3";
 
 package spu;
 
+option java_package = "org.secretflow.spu";
+
 // The SPU datatype
 enum DataType {
   DT_INVALID = 0;
@@ -173,6 +175,9 @@ message RuntimeConfig {
   // Number of fraction bits of fixed-point number.
   // 0(default) indicates implementation defined.
   int64 fxp_fraction_bits = 3;
+
+  // Max number of cores
+  int32 max_concurrency = 4;
 
   ///////////////////////////////////////
   // Advanced
