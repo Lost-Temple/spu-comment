@@ -12,10 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# bazel的工作空间，取名叫spulib
 workspace(name = "spulib")
-
+# 此语句用于从另一个文件加载函数或宏
 load("//bazel:repositories.bzl", "spu_deps")
-
+# 调用bazel/repositories.bzl中定义的spu_deps()
 spu_deps()
 
 #
@@ -23,6 +24,8 @@ spu_deps()
 # Warning: SPU relies on yacl to bring in common 3p libraries.
 #          Please make sure yacl_deps are called right after spu_deps.
 #
+# 这里加载yacl项目中yacl工作空间下的bazel:repositories.bzl
+# @yacl 表示 yacl项目的工作空间, 可以查看yacl项目的WORKSPACE,它里面定义的工作空间名字正是yacl
 load("@yacl//bazel:repositories.bzl", "yacl_deps")
 
 yacl_deps()
